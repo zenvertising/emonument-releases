@@ -1,0 +1,4 @@
+# Everything committed here is published by GitHub Pages — never commit credentials.
+.env*
+.wrangler/
+.DS_Store

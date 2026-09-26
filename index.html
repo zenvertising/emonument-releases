@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heritas — instalare și note de versiune</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
+    />
+    <!-- Bump ?v= whenever style.css or app.js changes: GitHub Pages lets browsers cache them for 10 min. -->
+    <link rel="stylesheet" href="style.css?v=2026-09-26m" />
+  </head>
+  <body>
+    <header class="masthead">
+      <img class="logo" src="assets/logo--icon-and-text.svg" alt="Heritas" />
+      <nav class="channels" aria-label="Canal">
+        <button type="button" data-channel="production">Producție</button>
+        <button type="button" data-channel="preview">Test</button>
+      </nav>
+    </header>
+
+    <main id="channel" aria-live="polite"></main>
+
+    <footer class="colophon">
+      <span class="site-updated"></span>
+      Heritas, dezvoltat de
+      <a href="https://zenvertising.ro/?utm_source=heritas-releases"
+        >Zenvertising</a
+      >
+    </footer>
+
+    <script src="assets/vendor/qrcode.js"></script>
+    <script src="app.js?v=2026-09-26m"></script>
+  </body>
+</html>

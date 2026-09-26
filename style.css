@@ -1,0 +1,580 @@
+:root {
+  --ink: #004057;
+  --ink-deep: #00303f;
+  --muted: #4a6772;
+  --body: #1f4e5f;
+  --teal: #23908a;
+  --teal-dark: #196763;
+  --ochre: #aa903c;
+  --ochre-dark: #84702e;
+  --canvas: #eef4f3;
+  --tint: #f4f8f8;
+  --line: rgba(0, 64, 87, 0.12);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--canvas);
+  font-variant-numeric: tabular-nums;
+}
+a {
+  color: var(--teal-dark);
+  text-underline-offset: 3px;
+}
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+.masthead,
+main,
+.colophon {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 20px;
+}
+.logo {
+  height: 30px;
+}
+.channels {
+  display: flex;
+  padding: 4px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.channels button {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  padding: 7px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color 150ms ease-out,
+    color 150ms ease-out;
+}
+.channels button:hover {
+  color: var(--ink);
+}
+.channels button[aria-pressed="true"] {
+  background: var(--ink);
+  color: #fff;
+}
+main {
+  padding-bottom: 72px;
+}
+h1 {
+  font-size: 36px;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-top: 12px;
+}
+h2 {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow:
+    0 1px 2px rgba(0, 64, 87, 0.06),
+    0 0 0 1px var(--line);
+}
+.chip {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--teal-dark);
+  background: rgba(35, 144, 138, 0.1);
+  padding: 3px 10px;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+.chip-on {
+  color: #fff;
+  background: var(--teal);
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+/* Hero: the install card is the page. */
+.hero {
+  padding: 32px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.hero.is-preview {
+  box-shadow: 0 0 0 2px var(--ochre);
+}
+.warn {
+  margin: -32px -32px 24px;
+  padding: 10px 32px;
+  background: #f7e9d6;
+  color: #5e4f1f;
+  font-size: 14.5px;
+}
+.hero-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+.lede {
+  color: var(--muted);
+  font-size: 18px;
+  margin-top: 6px;
+}
+.facts {
+  display: flex;
+  gap: 32px;
+  margin-top: 18px;
+}
+.facts dt {
+  font-size: 12.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.facts dd {
+  font-size: 18px;
+  font-weight: 700;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+  scroll-margin-top: 24px;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px 12px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  transition:
+    background-color 150ms ease-out,
+    box-shadow 150ms ease-out;
+}
+.btn small {
+  display: block;
+  font-weight: 400;
+  font-size: 12.5px;
+  opacity: 0.8;
+}
+.btn svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+.btn:active,
+.cta:active {
+  transform: scale(0.98);
+}
+.btn-primary {
+  background: var(--teal);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--teal-dark);
+}
+.btn-quiet {
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+}
+.btn-quiet:hover {
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+.qr {
+  display: none;
+}
+@media (hover: hover) and (min-width: 760px) {
+  .qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-start;
+    gap: 10px;
+    width: 230px;
+    flex-shrink: 0;
+    padding: 18px;
+    background: var(--tint);
+    border-radius: 12px;
+  }
+  .qr svg {
+    width: 170px;
+    height: 170px;
+  }
+  .qr figcaption {
+    font-size: 12.5px;
+    color: var(--muted);
+    text-align: center;
+  }
+}
+
+/* First install on iPad / iPhone: a three-step track, each step marked by its kind. */
+.enroll {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.enroll h2 {
+  font-size: 17px;
+  margin: 0;
+}
+.enroll-lede {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+.track {
+  list-style: none;
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.track > li {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+  font-size: 14.5px;
+}
+.track > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: 44px;
+  right: -16px;
+  height: 2px;
+  background: var(--line);
+}
+.track > li.is-action::after {
+  background: linear-gradient(90deg, var(--teal), var(--line));
+}
+.dot {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 15px;
+  background: var(--tint);
+  color: var(--muted);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+}
+.dot svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+.is-action .dot {
+  background: var(--teal);
+  color: #fff;
+  box-shadow: 0 0 0 5px rgba(35, 144, 138, 0.15);
+}
+.is-wait .dot {
+  color: var(--ochre-dark);
+  background: #faf3e3;
+  box-shadow: inset 0 0 0 1.5px rgba(170, 144, 60, 0.35);
+}
+.track h3 {
+  font-size: 15.5px;
+}
+.track p {
+  margin-top: 3px;
+  color: var(--body);
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color 150ms ease-out;
+}
+.cta:hover {
+  background: var(--ink-deep);
+}
+.cta svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.track .hint {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.badge {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ochre-dark);
+  background: #faf3e3;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.to-actions {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* OTA how-to: three cards. */
+.steps {
+  padding: 44px 0 8px;
+}
+.steps ol {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.steps li {
+  padding: 18px 18px 20px;
+  font-size: 15px;
+}
+.n {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.steps .aside {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+/* History: one card per native version, OTA updates as dated rows. */
+.history {
+  padding-top: 36px;
+}
+.version {
+  margin-bottom: 12px;
+  padding: 0 22px;
+}
+.version[open] {
+  padding-bottom: 10px;
+}
+.version > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+}
+.version > summary h3 {
+  font-size: 19px;
+}
+.version > summary .meta {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+.caret {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform 200ms var(--ease-out);
+}
+.version[open] > summary .caret {
+  transform: rotate(-135deg);
+}
+.version .lead {
+  font-size: 16.5px;
+  margin-bottom: 8px;
+}
+.version-notes > summary,
+.more > details > summary {
+  color: var(--teal-dark);
+  font-weight: 500;
+  font-size: 15px;
+}
+.version-notes > summary:hover,
+.more > details > summary:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.version-notes ul,
+.find .what ul {
+  margin: 6px 0 4px 18px;
+  font-size: 15px;
+  color: var(--body);
+}
+.version-notes li,
+.find .what li {
+  margin-top: 3px;
+}
+.finds {
+  list-style: none;
+  margin-top: 10px;
+}
+.find {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.find time {
+  height: fit-content;
+  padding: 6px 0;
+  text-align: center;
+  background: var(--tint);
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--muted);
+}
+.find time b {
+  display: block;
+  font-size: 20px;
+  color: var(--ink);
+}
+.find .what > p {
+  font-weight: 500;
+}
+.code summary {
+  margin-top: 6px;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.code summary:hover {
+  color: var(--ink);
+}
+.code p {
+  margin-top: 4px;
+  font-size: 12.5px;
+  color: var(--muted);
+  word-break: break-all;
+}
+.more {
+  padding: 12px 0 18px;
+  border-top: 1px solid var(--line);
+}
+.more .finds {
+  margin-top: 6px;
+}
+.empty {
+  color: var(--muted);
+  font-size: 15px;
+  padding: 4px 0 18px;
+}
+.loading {
+  color: var(--muted);
+  padding: 48px 0;
+}
+.colophon {
+  font-size: 13px;
+  color: var(--muted);
+  padding-block: 28px 40px;
+  border-top: 1px solid var(--line);
+}
+.colophon span {
+  display: block;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 24px 20px;
+  }
+  .warn {
+    margin: -24px -20px 20px;
+    padding-inline: 20px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  .btn {
+    flex: 1 1 100%;
+  }
+  .steps ol,
+  .track {
+    grid-template-columns: 1fr;
+  }
+  .track {
+    gap: 20px;
+  }
+  .track > li {
+    grid-template-columns: 36px 1fr;
+    grid-template-rows: none;
+    gap: 14px;
+  }
+  .track > li:not(:last-child)::after {
+    top: 44px;
+    bottom: -16px;
+    left: 17px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: var(--line);
+  }
+  .track > li.is-action::after {
+    background: linear-gradient(180deg, var(--teal), var(--line));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
