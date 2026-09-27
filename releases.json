@@ -72,6 +72,22 @@
   "updates": [
     {
       "channel": "preview",
+      "groupId": "fe1f0f57-3cb7-49a7-bc91-cbe5ed7db8d6",
+      "summary": "În selectorul de opțiuni, valoarea aleasă nu mai apare de două ori.",
+      "notes": [
+        "În selectorul „Selectează…” al câmpurilor cu listă, fiecare opțiune apare o singură dată; o valoare adăugată manual nu mai apare și ca „opțiune inactivă”."
+      ]
+    },
+    {
+      "channel": "preview",
+      "groupId": "05f812ae-1efd-4544-941e-fc57cb68f8a1",
+      "summary": "În fișa de persoană, câmpurile pentru naștere și deces apar din nou direct în secțiune.",
+      "notes": [
+        "În fișa de persoană, subsecțiunile pentru naștere și deces nu mai cer apăsarea butonului „Adaugă …”: câmpurile lor apar direct în secțiune, gata de completat."
+      ]
+    },
+    {
+      "channel": "preview",
       "groupId": "d81c0cd2-f953-49d6-8a20-86e805e74671",
       "summary": "Poți schimba parola direct din tabletă și poți trimite o secțiune spre aprobare chiar dacă are câmpuri obligatorii necompletate.",
       "notes": [
