@@ -140,11 +140,6 @@ h2 {
   color: #5e4f1f;
   font-size: 14.5px;
 }
-.hero-grid {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
 .lede {
   color: var(--muted);
   font-size: 18px;
@@ -192,13 +187,11 @@ h2 {
   font-size: 12.5px;
   opacity: 0.8;
 }
-.btn svg {
-  width: 26px;
-  height: 26px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.6;
-  stroke-linecap: round;
+.btn .mark {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
 }
 .btn:active,
 .cta:active {
@@ -218,33 +211,6 @@ h2 {
 .btn-quiet:hover {
   box-shadow: inset 0 0 0 1.5px var(--ink);
 }
-.qr {
-  display: none;
-}
-@media (hover: hover) and (min-width: 760px) {
-  .qr {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: flex-start;
-    gap: 10px;
-    width: 230px;
-    flex-shrink: 0;
-    padding: 18px;
-    background: var(--tint);
-    border-radius: 12px;
-  }
-  .qr svg {
-    width: 170px;
-    height: 170px;
-  }
-  .qr figcaption {
-    font-size: 12.5px;
-    color: var(--muted);
-    text-align: center;
-  }
-}
-
 /* First install on iPad / iPhone: a three-step track, each step marked by its kind. */
 .enroll {
   margin-top: 28px;
@@ -368,6 +334,233 @@ h2 {
   margin-top: 10px;
   font-weight: 500;
 }
+.to-guide {
+  display: block;
+  width: fit-content;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Registration walkthrough: the Expo page, screen by screen, in Romanian. Collapsed until asked for. */
+.guide {
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 16px;
+}
+.guide > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+}
+.guide > summary h3 {
+  font-size: 16px;
+}
+.guide > summary:hover h3 {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* This page's own QR, desktop only: a tile in the card's top-right corner opens a floating panel. */
+.hero {
+  position: relative;
+}
+.hero.has-qr h1 {
+  padding-right: 220px;
+}
+.page-qr {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  z-index: 5;
+}
+.hero.is-preview .page-qr {
+  top: 72px;
+}
+.page-qr-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px 12px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--tint);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: left;
+  color: var(--ink);
+  cursor: pointer;
+  transition: box-shadow 150ms ease-out;
+}
+.page-qr-toggle:hover,
+.page-qr-toggle[aria-expanded="true"] {
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+.page-qr-toggle:active {
+  transform: scale(0.97);
+}
+.page-qr-toggle svg {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+.page-qr-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  padding: 18px 22px 18px 18px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 18px 40px rgba(0, 48, 63, 0.16),
+    0 4px 10px rgba(0, 48, 63, 0.06);
+  transform-origin: top right;
+  animation: page-qr-in 180ms var(--ease-out);
+}
+.page-qr-panel[hidden] {
+  display: none;
+}
+@keyframes page-qr-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+}
+.qr-code {
+  flex-shrink: 0;
+  width: 240px;
+  height: 240px;
+}
+.qr-code svg {
+  display: block;
+  width: 240px;
+  height: 240px;
+}
+.page-qr-panel > div:last-child {
+  max-width: 190px;
+}
+.page-qr-panel h3 {
+  font-size: 16px;
+  line-height: 1.3;
+}
+.page-qr-panel p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--body);
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-qr-panel {
+    animation: none;
+  }
+}
+.guide-steps {
+  list-style: none;
+  counter-reset: g;
+  margin-top: 22px;
+  max-width: 720px;
+}
+.guide-steps > li {
+  counter-increment: g;
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  padding-bottom: 22px;
+  font-size: 15px;
+}
+.guide-steps > li::before {
+  content: counter(g);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+.guide-steps > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 38px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--line);
+}
+.guide-steps > li.is-done::before {
+  content: "✓";
+  background: var(--teal);
+}
+.guide-steps h3 {
+  font-size: 16px;
+  line-height: 1.35;
+  padding-top: 5px;
+}
+.guide-steps p {
+  color: var(--body);
+}
+.guide-steps .aside {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.guide kbd {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--tint);
+  padding: 1px 7px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  white-space: nowrap;
+}
+.guide .en {
+  color: var(--muted);
+  font-size: 13.5px;
+}
+.guide-steps > li.has-shot {
+  grid-template-columns: 36px 1fr 200px;
+}
+.has-shot .shot {
+  margin-left: 8px;
+}
+.shot img {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+.ios-note {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 460px;
+}
+.guide-note {
+  max-width: 720px;
+  padding: 12px 16px;
+  background: #faf3e3;
+  color: #5e4f1f;
+  font-size: 14.5px;
+  border-radius: 8px;
+}
 
 /* OTA how-to: three cards. */
 .steps {
@@ -436,7 +629,8 @@ h2 {
   transform: rotate(45deg);
   transition: transform 200ms var(--ease-out);
 }
-.version[open] > summary .caret {
+.version[open] > summary .caret,
+.guide[open] > summary .caret {
   transform: rotate(-135deg);
 }
 .version .lead {
@@ -537,6 +731,19 @@ h2 {
 @media (max-width: 760px) {
   .hero {
     padding: 24px 20px;
+  }
+  .guide kbd {
+    white-space: normal;
+  }
+  .guide-steps > li.has-shot {
+    grid-template-columns: 36px 1fr;
+  }
+  .has-shot .shot {
+    grid-column: 2;
+    margin: 12px 0 0;
+  }
+  .shot img {
+    max-width: 180px;
   }
   .warn {
     margin: -24px -20px 20px;
