@@ -71,6 +71,26 @@
   ],
   "updates": [
     {
+      "channel": "production",
+      "groupId": "bcb8c917-8068-44ef-be7c-96e8c2c5655c",
+      "summary": "Aduce versiunea 2 a aplicației: fișa de persoană, unelte noi de desenare pe hartă, grupuri de fișe, schimbarea parolei din tabletă și un indicator online/offline.",
+      "notes": [
+        "Fișa de persoană: tab nou „Persoană” în lista de fișe; datele istorice se introduc într-un format flexibil și sunt verificate la completare; în listele deschise poți adăuga o valoare nouă direct din selector.",
+        "Nomenclatoarele se potrivesc cu serverul: căutare fără diacritice, opțiunile istorice marcate ca inactive, fiecare opțiune apare o singură dată.",
+        "O bandă în partea de sus a fiecărui ecran arată dacă ești online sau offline.",
+        "Uneltele hărții sunt într-o bară verticală, împreună cu acțiunile capturii; când selectezi o captură, harta se încadrează pe geometria ei.",
+        "Măsurători în timp ce desenezi: lungimea segmentelor, perimetrul și aria.",
+        "Poți anula și reface pașii de desenare, iar aplicația te avertizează când o formă se intersectează singură.",
+        "Poligoanele pot avea goluri: se păstrează la editare, iar cu „Decupează un gol” poți adăuga altele noi.",
+        "Poți copia geometria dintr-o altă fișă, cu previzualizare pe hartă; „Duplică” și „Copiază geometrie” au iconițe diferite.",
+        "Coordonatele din toate sursele serverului se încarcă corect; formularul de coordonate are sursa nouă „Date Locale” și un câmp de „Observații”.",
+        "Grupuri de fișe: în listă și în fișă vezi legătura dintre grup și componente; pe hartă, componentele apar în stratul „Grup (componente)”, cu butonul „Încadrează grupul”.",
+        "Parola se poate schimba din tabletă, atât când este cerută, cât și oricând din setări.",
+        "Secțiunile cu câmpuri obligatorii necompletate pot fi trimise, după confirmare.",
+        "Lista de fișe are un aspect mai clar, cu o bară de stare a secțiunilor."
+      ]
+    },
+    {
       "channel": "preview",
       "groupId": "fe1f0f57-3cb7-49a7-bc91-cbe5ed7db8d6",
       "summary": "În selectorul de opțiuni, valoarea aleasă nu mai apare de două ori.",
