@@ -252,11 +252,12 @@ function updateRow(update, note) {
       ? `iOS ${ios}, Android ${android}`
       : ios || android;
   const [day, ...month] = shortDate(update.createdAt).split(" ");
+  const tag = update.tag ? `<span class="chip">${esc(update.tag)}</span> ` : "";
   return `
     <li class="find">
       <time datetime="${esc(update.createdAt)}"><b>${day}</b>${month.join(" ")}</time>
       <div class="what">
-        <p>${esc(title)}</p>${items ? `<ul>${items}</ul>` : ""}
+        <p>${tag}${esc(title)}</p>${items ? `<ul>${items}</ul>` : ""}
         <details class="code"><summary>Cod ${codes}</summary><p>ID grup: ${esc(update.groupId)}<br />${esc(update.subject)}</p></details>
       </div>
     </li>`;
