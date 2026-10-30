@@ -218,7 +218,7 @@ function hero(channel, data) {
       ${qr ? PAGE_QR : ""}
       ${chip}
       <h1>${title}</h1>
-      <dl class="facts"><div><dt>Versiunea</dt><dd>${esc(pointers[0].runtimeVersion)}</dd></div></dl>
+      <dl class="facts"><div><dt>Runtime</dt><dd>${esc(pointers[0].runtimeVersion)}</dd></div></dl>
       <div class="actions" id="actions">${installButtons(data)}</div>
       ${showsEnroll(data) ? '<p class="ios-note">Pe iPad și iPhone, aplicația se instalează doar dacă dispozitivul a fost <a href="#inregistrare">înregistrat în prealabil</a>.</p>' : ""}
       ${enroll}
@@ -302,7 +302,7 @@ function historySection(channel, data, notes) {
     const items = notesList.map((n) => `<li>${esc(n)}</li>`).join("");
     return `
       <details class="card version${mine ? " mine" : ""}"${mine ? " open" : ""}>
-        <summary><div><h3>Versiunea ${esc(version)}${mine ? ' <span class="chip chip-on">actuală</span>' : ""}</h3><p class="meta">${meta}</p></div><span class="caret" aria-hidden="true"></span></summary>
+        <summary><div><h3>Runtime ${esc(version)}${mine ? ' <span class="chip chip-on">actuală</span>' : ""}</h3><p class="meta">${meta}</p></div><span class="caret" aria-hidden="true"></span></summary>
         ${note?.summary ? `<p class="lead">${esc(note.summary)}</p>` : ""}
         ${items ? `<details class="version-notes"><summary>Noutăți în această versiune (${notesList.length})</summary><ul>${items}</ul></details>` : ""}
         ${list.length ? updateList(list, notes) : '<p class="empty">Nu există încă actualizări pentru această versiune.</p>'}
